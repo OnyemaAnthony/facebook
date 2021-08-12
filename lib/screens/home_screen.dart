@@ -94,9 +94,12 @@ class _HomeScreenDesktop extends StatelessWidget {
         Spacer(),
         Flexible(
           flex: 2,
-          child:Padding(
-            padding: EdgeInsets.all(12),
-            child: ContactList(users:onlineUsers),
+          child:Align(
+            alignment: Alignment.centerRight,
+            child: Padding(
+              padding: EdgeInsets.all(12),
+              child: ContactList(users:onlineUsers),
+            ),
           )
         )
       ],
