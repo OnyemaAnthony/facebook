@@ -3,6 +3,7 @@ import 'package:facebook/models/post_model.dart';
 import 'package:facebook/widgets/CreatePost.dart';
 import 'package:facebook/widgets/circle_button.dart';
 import 'package:facebook/widgets/contact_list.dart';
+import 'package:facebook/widgets/more_option.dart';
 import 'package:facebook/widgets/post_container.dart';
 import 'package:facebook/widgets/responsive.dart';
 import 'package:facebook/widgets/rooms.dart';
@@ -47,9 +48,13 @@ class _HomeScreenDesktop extends StatelessWidget {
       children: [
         Flexible(
           flex: 2,
-          child: Container(
-            color: Colors.orange,
-          ),
+          child:Align(
+            alignment: Alignment.centerLeft,
+            child: Padding(
+              padding: EdgeInsets.all(12),
+              child: MoreOptionsList(currentUser:currentUser),
+            ),
+          )
         ),
         Spacer(),
         Container(
@@ -100,8 +105,8 @@ class _HomeScreenDesktop extends StatelessWidget {
               padding: EdgeInsets.all(12),
               child: ContactList(users:onlineUsers),
             ),
-          )
-        )
+          ),
+        ),
       ],
     );
   }
