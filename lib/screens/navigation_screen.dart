@@ -1,5 +1,6 @@
 import 'package:facebook/data.dart';
 import 'package:facebook/screens/home_screen.dart';
+import 'package:facebook/widgets/custom_appbar.dart';
 import 'package:facebook/widgets/custom_tabar.dart';
 import 'package:facebook/widgets/responsive.dart';
 import 'package:flutter/material.dart';
@@ -38,6 +39,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
         appBar: Responsive.isDesktop(context)
             ? PreferredSize(
                 child: CustomAppBar(
+                  selectedIndex: _selectedIndex,
                   currentUser:currentUser,
                   icons:_icons,
                   onTap:(index)=>setState(()=>_selectedIndex=index)

@@ -15,7 +15,7 @@ class CreatePost extends StatelessWidget {
       child: Column(children: [
         Row(
           children: [
-            ProfileAvatar(imageUr: currentUser!.imageUrl!,),
+            ProfileAvatar(imageUr: currentUser!.imageUrl,),
             const SizedBox(
               width: 8,
             ),
