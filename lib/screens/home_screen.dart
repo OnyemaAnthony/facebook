@@ -11,15 +11,26 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../utitlities.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  final TrackingScrollController _trackingScrollController = TrackingScrollController();
+  @override
+  void dispose() {
+   _trackingScrollController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         body: Responsive(
-          mobile: _HomeScreenMobile(),
-          desktop: _HomeScreenDesktop(),
+          mobile: _HomeScreenMobile(scrollController:_trackingScrollController),
+          desktop: _HomeScreenDesktop(scrollController:_trackingScrollController),
         ),
       ),
     );
@@ -27,6 +38,8 @@ class HomeScreen extends StatelessWidget {
 }
 
 class _HomeScreenDesktop extends StatelessWidget {
+  final TrackingScrollController? scrollController;
+  _HomeScreenDesktop({this.scrollController});
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -41,6 +54,7 @@ class _HomeScreenDesktop extends StatelessWidget {
         Container(
           width: 600,
           child: CustomScrollView(
+            controller: scrollController,
             slivers: [
               SliverToBoxAdapter(
                 child: Container(
@@ -89,9 +103,12 @@ class _HomeScreenDesktop extends StatelessWidget {
 }
 
 class _HomeScreenMobile extends StatelessWidget {
+  final TrackingScrollController? scrollController;
+  _HomeScreenMobile({this.scrollController});
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
+      controller: scrollController,
       slivers: [
         SliverAppBar(
           brightness: Brightness.light,
