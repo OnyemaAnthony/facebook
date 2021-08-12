@@ -170,7 +170,7 @@ class _PostSat extends StatelessWidget {
               icon: Icon(
                 FontAwesomeIcons.share,
                 color: Colors.grey.shade600,
-                size: 30,
+                size: 25,
               ),
               label:'Share',
                 onTap:()=>print('Share')
@@ -197,6 +197,7 @@ class _PostButton extends StatelessWidget {
         child: InkWell(child: Container(
           height:25,
           child:Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               icon!,
               const SizedBox(width: 4,),

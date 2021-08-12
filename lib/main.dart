@@ -1,4 +1,4 @@
-import 'package:facebook/screens/home_screen.dart';
+import 'package:facebook/screens/navigation_screen.dart';
 import 'package:facebook/utitlities.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         scaffoldBackgroundColor: Utilities.scaffold,
       ),
-      home:HomeScreen(),
+      home:NavigationScreen(),
     );
   }
 }
