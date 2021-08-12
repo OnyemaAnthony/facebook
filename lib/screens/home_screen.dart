@@ -2,6 +2,7 @@ import 'package:facebook/data.dart';
 import 'package:facebook/models/post_model.dart';
 import 'package:facebook/widgets/CreatePost.dart';
 import 'package:facebook/widgets/circle_button.dart';
+import 'package:facebook/widgets/contact_list.dart';
 import 'package:facebook/widgets/post_container.dart';
 import 'package:facebook/widgets/responsive.dart';
 import 'package:facebook/widgets/rooms.dart';
@@ -93,9 +94,10 @@ class _HomeScreenDesktop extends StatelessWidget {
         Spacer(),
         Flexible(
           flex: 2,
-          child: Container(
-            color: Colors.blue,
-          ),
+          child:Padding(
+            padding: EdgeInsets.all(12),
+            child: ContactList(users:onlineUsers),
+          )
         )
       ],
     );
