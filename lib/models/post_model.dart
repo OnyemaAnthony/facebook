@@ -1,14 +1,15 @@
+import 'package:facebook/models/UserModel.dart';
 import 'package:meta/meta.dart';
 
 
 class PostModel {
-  final User user;
-  final String caption;
-  final String timeAgo;
-  final String imageUrl;
-  final int likes;
-  final int comments;
-  final int shares;
+  final UserModel? user;
+  final String? caption;
+  final String? timeAgo;
+  final String? imageUrl;
+  final int? likes;
+  final int? comments;
+  final int? shares;
 
   const PostModel({
     @required this.user,

@@ -1,9 +1,10 @@
 
+import 'package:facebook/models/UserModel.dart';
 import 'package:meta/meta.dart';
 
 class StoryModel {
-  final User user;
-  final String imageUrl;
+  final UserModel? user;
+  final String? imageUrl;
   final bool isViewed;
 
   const StoryModel({
