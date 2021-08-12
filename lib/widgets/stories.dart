@@ -3,6 +3,7 @@ import 'package:facebook/models/UserModel.dart';
 import 'package:facebook/models/story_model.dart';
 import 'package:facebook/utitlities.dart';
 import 'package:facebook/widgets/profile_avatar.dart';
+import 'package:facebook/widgets/responsive.dart';
 import 'package:flutter/material.dart';
 
 class Stories extends StatelessWidget {
@@ -15,7 +16,7 @@ class Stories extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 200,
-      color: Colors.white,
+      color: Responsive.isDesktop(context) ? Colors.transparent : Colors.white,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: 1 + stories!.length,
@@ -68,8 +69,19 @@ class _StoryCard extends StatelessWidget {
           height: double.infinity,
           width: 110,
           decoration: BoxDecoration(
-              gradient: Utilities.storyGradient,
-              borderRadius: BorderRadius.circular(12)),
+            gradient: Utilities.storyGradient,
+            boxShadow: Responsive.isDesktop(context)
+                ? const [
+                    BoxShadow(
+                        color: Colors.black26,
+                        offset: Offset(0, 2),
+                        blurRadius: 4)
+                  ]
+                : null,
+            borderRadius: BorderRadius.circular(
+              12,
+            ),
+          ),
         ),
         Positioned(
           top: 8,
@@ -98,7 +110,7 @@ class _StoryCard extends StatelessWidget {
           right: 8,
           left: 8,
           child: Text(
-            isAddStory ? 'Add to Story': story!.user!.name!,
+            isAddStory ? 'Add to Story' : story!.user!.name!,
             style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.bold,
@@ -106,7 +118,6 @@ class _StoryCard extends StatelessWidget {
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
           ),
-
         )
       ],
     );
