@@ -54,7 +54,11 @@ class _Option extends StatelessWidget {
 
       },
       child: Row(
-        Icon(icon,size: 38,)
+      children: [
+        Icon(icon,size: 38,color: color,),
+        SizedBox(width: 6,),
+
+      ],
       ),
     );
   }
