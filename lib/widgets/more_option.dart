@@ -70,7 +70,7 @@ class _Option extends StatelessWidget {
             child: Text(
               label!,
               style: TextStyle(
-                fontSize: 16,
+                fontSize: 17,
               ),
               overflow: TextOverflow.ellipsis,
             ),
